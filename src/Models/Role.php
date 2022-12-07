@@ -46,9 +46,7 @@ class Role extends Model implements RoleContract
                 $attributes[PermissionRegistrar::$teamsKey] = getPermissionsTeamId();
             }
         }
-        if (static::findByParam($params)) {
-            throw RoleAlreadyExists::create($attributes['name'], $attributes['guard_name']);
-        }
+     
 
         return static::query()->create($attributes);
     }
